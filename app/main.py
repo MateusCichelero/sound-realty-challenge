@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Body, HTTPException
-from models import InputAll, InputMinimal, InferenceOutput
+from app.models import InputAll, InputMinimal, InferenceOutput
 from contextlib import asynccontextmanager
 from pydantic import ValidationError
 from pandas import read_csv, DataFrame, read_json
@@ -10,11 +10,11 @@ import json
 
 # Load Model and Artifacts with Lifespan Events
 def model_predictor(df_input: DataFrame):
-    with open("./model/model.pkl", 'rb') as model_file:
+    with open("app/model/model.pkl", 'rb') as model_file:
         model = pickle.load(model_file) 
-    with open('./model/model_features.json') as json_file:
+    with open('app/model/model_features.json') as json_file:
         features = json.load(json_file)
-    demographics = read_csv("./data/zipcode_demographics.csv",
+    demographics = read_csv("app/data/zipcode_demographics.csv",
                       dtype={'zipcode': str})
 
     
