@@ -85,7 +85,7 @@ def main():
               open(output_dir / "model_features.json", 'w'))
 
     # Generate validation metrics for the run
-    mae_naive, r2_naive, mae_test, r2_test = validate_model(model, x_train.columns, y_train, x_test, y_test)
+    mae_naive, r2_naive, mae_test, r2_test = validate_model(model, x_train.columns, y_train, _x_test, _y_test)
     metrics = f"""
     - Mean Absolute Error "naive" (mean of the prices on training dataset): {mae_naive}
     - R-squared Score "naive" (mean of the prices on training dataset): {r2_naive}
