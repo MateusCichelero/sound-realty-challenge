@@ -14,7 +14,7 @@ jobs:
         run: |
           cd experiments
           pip install -r experiment_requirements.txt
-          python train.py  # generate plot.png
+          python create_model.py  # generate metrics
 
           # Create CML report
           cat metrics.txt >> report.md
