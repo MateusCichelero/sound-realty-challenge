@@ -1,0 +1,22 @@
+name: CML
+on:
+  pull_request:
+    branches: [ "ml-experiments-develop" ]
+jobs:
+  train-and-report:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    container: docker://ghcr.io/iterative/cml:0-dvc2-base1
+    steps:
+      - uses: actions/checkout@v3
+      - name: Train model
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd experiments
+          pip install -r experiment_requirements.txt
+          python create_model.py  # generate metrics
+
+          # Create CML report
+          cat metrics.txt >> report.md
+          cml comment create report.md
