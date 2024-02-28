@@ -86,15 +86,12 @@ def main():
 
     # Generate validation metrics for the run
     mae_naive, r2_naive, mae_test, r2_test = validate_model(model, x_train.columns, y_train, _x_test, _y_test)
-    metrics = f"""
-    - Mean Absolute Error "naive" (mean of the prices on training dataset): {mae_naive}
-    - R-squared Score "naive" (mean of the prices on training dataset): {r2_naive}
-
-    - Mean Absolute Error (test dataset): {mae_test}
-    - R-squared Score (test dataset): {r2_test}
-    """
+    
     with open("metrics.txt", "w") as outfile:
-        outfile.write(metrics)
+        outfile.write("Mean Absolute Error naive (mean of the prices on training dataset): " + str(mae_naive) + "\n")
+        outfile.write("R-squared Score naive (mean of the prices on training dataset): " + str(r2_naive) + "\n")
+        outfile.write("Mean Absolute Error (test dataset): " + str(mae_test) + "\n")
+        outfile.write("R-squared Score (test dataset): " + str(r2_test) + "\n")
 
 
 if __name__ == "__main__":
