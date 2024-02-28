@@ -17,8 +17,9 @@ jobs:
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          cd experiments
           pip3 install -r experiment_requirements.txt
-          python experiments/create_model.py
+          python create_model.py
 
           # Create CML report
-          cml comment create --pr --publish experiments/metrics.txt
+          cml comment create --pr --publish metrics.txt
