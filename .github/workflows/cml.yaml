@@ -1,0 +1,24 @@
+name: train-my-model
+on: 
+  pull_request:
+    branches: [ "ml-experiments-develop" ]
+jobs:
+  train-model:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: iterative/setup-cml@v1
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Train model
+        env:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pip3 install -r experiment_requirements.txt
+          python experiments/create_model.py
+
+          # Create CML report
+          cml comment create --pr --publish experiments/metrics.txt
