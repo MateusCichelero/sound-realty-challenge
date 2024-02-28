@@ -1,7 +1,5 @@
 name: CML
-on: 
-  pull_request:
-    branches: [ "ml-experiments-develop" ]
+on: [push]
 jobs:
   train-and-report:
     runs-on: ubuntu-latest
