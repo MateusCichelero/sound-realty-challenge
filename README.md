@@ -1,6 +1,6 @@
 # Housing Prices ML Regression API
 
-- **phData Machine Learning Engineer Candidate Project**
+- **Machine Learning Engineer Project**
 - Author: Mateus Cichelero
 - Date: February 2024
 
