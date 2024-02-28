@@ -3,7 +3,7 @@ on:
   pull_request:
     branches: [ "ml-experiments-develop" ]
 jobs:
-  train-and-report::
+  train-and-report:
     runs-on: ubuntu-latest
     container: docker://ghcr.io/iterative/cml:0-dvc2-base1
     steps:
