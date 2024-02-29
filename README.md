@@ -25,7 +25,7 @@ This project provides a REST API that uses a machine learning regression model t
 ## Challenge Requirements
 - [x] Deploy the model as an endpoint on a RESTful service which receives JSON POST data. (see **/predict endpoint at app/main**)
 - [x] Create an additional API endpoint where only the required features have to be provided in order to get a prediction. (see **/predict_minimal endpoint at app/main**) 
-- [x] Create a test script which submits examples to the endpoint to demonstrate its behavior. (try **python experiments/api_test_script.py** with the api application running on docker)
+- [x] Create a test script which submits examples to the endpoint to demonstrate its behavior. (try **cd experiments** and then **python experiments/api_test_script.py** in your poetry env with the api application already running on docker)
 - [x] Evaluate the performance of the basic model. (see regression metrics comment at https://github.com/MateusCichelero/sound-realty-challenge/pull/11 - use of cml from iterative (https://cml.dev/). Implemented at experiments/create_model.py in **experiments-basic-model** branch)
 - [x] Improve the model by applying some basic machine-learning principles. Check the implementation of catboost regressor with grid search and using categorical features in the **experiments-gbm-model** branch. See regression metrics comment at https://github.com/MateusCichelero/sound-realty-challenge/pull/12 (a good improvement compared to the basic model)
 
